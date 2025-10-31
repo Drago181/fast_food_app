@@ -1,12 +1,19 @@
 import "../globals.css"
-import { Text, View, FlatList, Pressable, Image, TouchableOpacity, ScrollView } from "react-native";
+import { Text, View, FlatList, Pressable, Image, TouchableOpacity, ScrollView, Button } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import {offers, images} from "@/constants";
+import * as Sentry from "@sentry/react-native";
 import {Fragment} from "react";
 import cn from "clsx";
+
 import CartButton from "../../components/CartButton";
+import {offers, images} from "@/constants";
+import useAuthStore from "@/store/auth.store";
+
 
 export default function Index() {
+
+    const { user } = useAuthStore();
+
     return (
         <SafeAreaView className="flex-1 bg-white">
 
